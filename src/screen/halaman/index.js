@@ -23,22 +23,6 @@ const Halaman = ({navigation}) => {
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
-    setLoading(true);
-    fetch('https://api.alquran.cloud/v1/quran/quran-uthmani', {
-      method: 'GET',
-      redirect: 'follow',
-    })
-      .then(response => response.json())
-      .then(result => {
-        console.log(result.data.surahs[2].ayahs[0].manzil);
-        setayahs(result.data.surahs[2].ayahs);
-        setManzil(result.data.surahs[2].ayahs[0].manzil);
-      })
-      .catch(error => console.log('error', error))
-      .finally(() => setLoading(false));
-  }, []);
-
-  useEffect(() => {
     const focusHandler = navigation.addListener('focus', () => {
       setLoading(true);
       fetch('https://api.alquran.cloud/v1/quran/quran-uthmani', {
