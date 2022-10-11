@@ -23,21 +23,6 @@ const HomeSurah = ({navigation}) => {
   const drawer = useRef(null);
 
   useEffect(() => {
-    setLoading(true);
-    fetch('https://quran-api-id.vercel.app/surahs', {
-      method: 'GET',
-      redirect: 'follow',
-    })
-      .then(response => response.json())
-      .then(result => {
-        console.log(result);
-        setData(result);
-      })
-      .catch(error => console.log('error', error))
-      .finally(() => setLoading(false));
-  }, []);
-
-  useEffect(() => {
     const focusHandler = navigation.addListener('focus', () => {
       setLoading(true);
       fetch('https://quran-api-id.vercel.app/surahs', {
